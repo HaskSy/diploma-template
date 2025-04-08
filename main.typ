@@ -32,7 +32,7 @@
 = Список сокращений и условных обозначений
 #print-glossary(acronym-entries+symbols-entries, user-print-back-references: back-refs-on-right)
 
-#bibliography(title: "Список литературы", "common/external.bib", style: "gost-r-705-2008-numeric")
+#bibliography(title: "Список литературы", "common/bibliography.bib", style: "gost-r-705-2008-numeric")
 
 // Только если есть реальные термины..
 // = Словарь терминов
