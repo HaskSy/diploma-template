@@ -6,8 +6,8 @@
 
 
 #let template(
-  font-type: "Times New Roman",
-  font-size: 14pt,
+  font-type: "CMU Serif",
+  font-size: 12pt,
   link-color: black,
   glossary-list: [],
   body,
@@ -21,27 +21,27 @@
   )
 
   set page(
-    margin: (top: 2cm, bottom: 2cm, left: 2.5cm, right: 1cm) // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
+    margin: (top: 3.49cm, bottom: 2cm, left: 3.15cm, right: 3.15cm),// размер полей (ГОСТ 7.0.11-2011, 5.3.7)
+    width: 21cm,
   )
 
   set par(
     justify: true,
-    linebreaks: "optimized",
     // Удивительно, но в типографской штуке каждый элемент считался параграфом
     // И это вызвало проблемы, быть не может!
     // @see: https://github.com/typst/typst/pull/5768
-    first-line-indent: (amount: 2.5em, all: true), // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
-    leading: 1em // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
+    first-line-indent: (amount: 1.5em, all: true), // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
+    leading: 0.75em // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
   )
 
   set heading(numbering: "1.", outlined: true, supplement: [Раздел])
   show heading: it => {
-    set align(center)
+    set align(left)
     set text(
       font: font-type,
       size: font-size,
     )
-    set block(above: 3em, below: 3em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
+    set block(above: 2em, below: 1em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
 
     if it.level == 1 {
       // Без weak получается пустая страница из ниоткуда
@@ -49,7 +49,7 @@
       counter(figure).update(0) // сброс значения счетчика рисунков 
       counter(math.equation).update(0) // сброс значения счетчика уравнений 
       // Чтобы первый уровень был кричащим
-      upper(it)
+      text(size: 17.2pt, it)
     } else {
       it
     }
@@ -113,10 +113,10 @@
   show outline.entry: outrageous.show-entry.with(
     ..outrageous.presets.typst, 
     font-weight: ("bold", auto),
-    fill: (none, auto)
+    fill: (none, auto),
     )
-  outline(title: upper("Содержание"), indent: 1.5em, depth: 3)
 
+  outline(title: "Оглавление", depth: 3, indent: 1.5em)
   body
 }
 

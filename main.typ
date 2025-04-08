@@ -21,7 +21,6 @@
 
 
 #include "./parts/intro.typ"
-#show heading.where(level: 1): set heading(numbering: "Глава 1. ") // и здесь мы как раз начинаем главы, чтобы не сводить с ума список глав (он хочет содержание и введение тоже засчитать за главу)
 #include "./parts/part1.typ"
 #include "./parts/part2.typ"
 
@@ -31,7 +30,7 @@
 = Список сокращений и условных обозначений
 #print-glossary(acronym-entries+symbols-entries, user-print-back-references: back-refs-on-right)
 
-#bibliography(title: upper("Список литературы"), "common/external.bib", style: "gost-r-705-2008-numeric")
+#bibliography(title: "Список литературы", "common/external.bib", style: "gost-r-705-2008-numeric")
 
 // Только если есть реальные термины..
 // = Словарь терминов
