@@ -41,7 +41,7 @@
       font: font-type,
       size: font-size,
     )
-    set block(above: 2em, below: 1em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
+    set block(above: 2em, below: 1.2em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
 
     if it.level == 1 {
       // Без weak получается пустая страница из ниоткуда
@@ -111,17 +111,24 @@
   // Здесь делается некоторая магия, чтобы заставить первый уровень иметь обводку "bold" и не ставить никаких точечек
   // У меня почему-то ехал alignment, если я делал это штатными средствами
   show outline.entry: outrageous.show-entry.with(
-    ..outrageous.presets.typst, 
     font-weight: ("bold", auto),
-    fill: (none, auto),
+    font: (font-type, font-type)
     )
-
+  show outline.entry: it => {
+    if (it.level == 1) {
+      v(8.5pt)
+      it
+    } else {
+      it
+    }
+  }
   outline(title: "Оглавление", depth: 3, indent: 1.5em)
+
   body
 }
 
 #let appendix(body) = {
-
+  
   counter(heading).update(0)
   
   // headings using letters

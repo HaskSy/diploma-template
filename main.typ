@@ -38,4 +38,5 @@
 
 
 
+#show heading: set heading(numbering: none)
 #include "./parts/appendix.typ"
