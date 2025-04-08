@@ -20,9 +20,11 @@
 #register-glossary(glossary-entries)
 
 
-#include "./parts/intro.typ"
-#include "./parts/part1.typ"
-#include "./parts/part2.typ"
+#include "./sections/intro.typ"
+#include "./sections/section1.typ"
+#include "./sections/section2.typ"
+#include "./sections/section3.typ"
+#include "./sections/section4.typ"
 
 // Всё, хватит с нас чиселок
 #show heading: set heading(numbering: none)
@@ -39,4 +41,4 @@
 
 
 #show heading: set heading(numbering: none)
-#include "./parts/appendix.typ"
+#include "./sections/appendix.typ"
