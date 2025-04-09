@@ -3,25 +3,18 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.8": codly-languages
 #import "@preview/outrageous:0.4.0"
-
+#import "@preview/ctheorems:1.1.3": *
+#show: thmrules
 
 #let template(
-  font-type: "CMU Serif",
-  font-size: 12pt,
-  link-color: black,
-  glossary-list: [],
-  body,
+  font-type: "CMU Serif", font-size: 12pt, link-color: black, glossary-list: [], body,
 ) = {
   set text(
-    font: font-type,
-    lang: "ru",
-    size: font-size,
-    fallback: true,
-    hyphenate: false,
+    font: font-type, lang: "ru", size: font-size, fallback: true, hyphenate: false,
   )
 
   set page(
-    margin: (top: 3.49cm, bottom: 2cm, left: 3.15cm, right: 3.15cm),// размер полей (ГОСТ 7.0.11-2011, 5.3.7)
+    margin: (top: 3.49cm, bottom: 2cm, left: 3.15cm, right: 3.15cm), // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
     width: 21cm,
   )
 
@@ -31,30 +24,25 @@
     // И это вызвало проблемы, быть не может!
     // @see: https://github.com/typst/typst/pull/5768
     first-line-indent: (amount: 1.5em, all: true), // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
-    leading: 0.75em // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
+    leading: 0.75em, // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
   )
 
   set heading(numbering: "1.", outlined: true, supplement: [Раздел])
   show heading: it => {
     set align(left)
-    set text(
-      font: font-type,
-      size: font-size,
-    )
+    set text(font: font-type, size: font-size)
     set block(above: 2em, below: 1.2em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
 
     if it.level == 1 {
       // Без weak получается пустая страница из ниоткуда
-      pagebreak(weak: true) // новая страница для разделов 1 уровня 
-      counter(figure).update(0) // сброс значения счетчика рисунков 
-      counter(math.equation).update(0) // сброс значения счетчика уравнений 
+      pagebreak(weak: true) // новая страница для разделов 1 уровня
+      counter(figure).update(0) // сброс значения счетчика рисунков
+      counter(math.equation).update(0) // сброс значения счетчика уравнений
       // Чтобы первый уровень был кричащим
       text(size: 17.2pt, it)
     } else {
       it
     }
-    
-
   }
 
   // Не отображать ссылки на figure
@@ -66,7 +54,6 @@
   show: codly-init.with()
   codly(languages: codly-languages, display-icon: false)
 
-
   // глоссарий, чтобы было хорошо
   show: make-glossary
   show link: set text(fill: link-color)
@@ -74,11 +61,19 @@
   //TODO: Нумерация уравнений
 
   // Рисунки
-  show figure: align.with(center)
+  // show figure.where(kind: "thmenv"): align.with(left)
+  // show figure: align.with(center)
+  show figure: it => {
+    if (it.kind == "thmenv") {
+        show figure.caption: it => {}
+        set text(hyphenate: true)
+        align(left, it)
+    } else { align(center, it) }
+  }
   set figure(supplement: [Рисунок])
   set figure.caption(separator: [ -- ])
-  set figure(numbering: num => 
-    ((counter(heading.where(level:1)).get() + (num,)).map(str).join(".")),)
+  set figure(numbering: num =>
+  ((counter(heading.where(level: 1)).get() + (num,)).map(str).join(".")))
 
   // TODO: настройка таблиц
 
@@ -87,18 +82,18 @@
 
   state("section").update("body")
 
-
-  // Нумерация уравнений 
+  // Нумерация уравнений
   let eq_number(it) = {
-    let part_number = counter(heading.where(level:1)).get()
-    part_number 
-
+    let part_number = counter(heading.where(level: 1)).get()
+    part_number
     it
   }
-  set math.equation(numbering: num => 
-    ("("+(counter(heading.where(level:1)).get() + (num,)).map(str).join(".")+")"),
-    supplement: [Уравнение],)
-
+  set math.equation(
+    numbering: num =>
+    (
+      "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")"
+    ), supplement: [Уравнение],
+  )
 
   // сквозная нумерация
   set page(
@@ -110,10 +105,7 @@
   // Содержание
   // Здесь делается некоторая магия, чтобы заставить первый уровень иметь обводку "bold" и не ставить никаких точечек
   // У меня почему-то ехал alignment, если я делал это штатными средствами
-  show outline.entry: outrageous.show-entry.with(
-    font-weight: ("bold", auto),
-    font: (font-type, font-type)
-    )
+  show outline.entry: outrageous.show-entry.with(font-weight: ("bold", auto), font: (font-type, font-type))
   show outline.entry: it => {
     if (it.level == 1) {
       v(8.5pt)
@@ -128,16 +120,15 @@
 }
 
 #let appendix(body) = {
-  
   counter(heading).update(0)
-  
+
   // headings using letters
   show heading.where(level: 1): set heading(numbering: "Приложение A. ", supplement: [Приложение])
   show heading.where(level: 2): set heading(numbering: "A.1 ", supplement: [Приложение])
 
-  set figure(numbering: (x) => context {
+  set figure(numbering: (x) => context{
     let idx = numbering("A", counter(heading).at(here()).first())
-    [#idx.#numbering("1",x)]
+    [#idx.#numbering("1", x)]
   })
 
   // Чтобы всё считалось в аппендиксе локально
@@ -151,14 +142,26 @@
   }
 
   body
-  
 }
 
 #let icon(image) = {
-  box(
-    height: .8em,
-    baseline: 0.05em,
-    image
-  )
+  box(height: .8em, baseline: 0.05em, image)
   h(0.1em)
 }
+
+#let theorem = thmbox("теорема", "Теорема", fill: rgb("#eeffee"))
+#let corollary = thmplain("следствие", "Следствие", base: "теорема", titlefmt: strong)
+#let definition = thmbox(
+    "определение",
+    "Определение",
+    inset: 0em,
+    base_level: 1,
+    padding: (top: 0em, bottom: 0em),
+    namefmt: x => [#strong(x)],
+    titlefmt: x => strong(x + "."),
+    separator: [#h(0.4em)---]
+  )
+}
+
+#let example = thmplain("пример", "Пример").with(numbering: none)
+#let proof = thmproof("доказательство", "Доказательство")
