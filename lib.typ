@@ -52,7 +52,18 @@
 
   // настройка codly для кода
   show: codly-init.with()
-  codly(languages: codly-languages, display-icon: false)
+  codly(languages: 
+    (..codly-languages,
+     cangjie: (
+        name: "Cangjie",
+        icon: box(
+          image("attachments/icons/cangjie.svg", height: 0.9em),
+          baseline: 0.05em,
+          inset: 0pt,
+          outset: 0pt,
+        ) + h(0.3em),
+        color: rgb("#64d8cc"))),
+  display-icon: true)
 
   // глоссарий, чтобы было хорошо
   show: make-glossary
