@@ -36,7 +36,7 @@
 )
 
 // Только если есть реальные термины..
-// = Словарь терминов
+= Словарь терминов
 #print-glossary(glossary-entries, user-print-back-references: back-refs-on-right)
 
 #show heading: set heading(numbering: none)

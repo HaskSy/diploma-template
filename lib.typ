@@ -23,8 +23,8 @@
     // Удивительно, но в типографской штуке каждый элемент считался параграфом
     // И это вызвало проблемы, быть не может!
     // @see: https://github.com/typst/typst/pull/5768
-    first-line-indent: (amount: 1.5em, all: true), // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
-    leading: 0.75em, // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
+    first-line-indent: (amount: 1.5em, all: true),
+    leading: 0.6em,
   )
 
   set heading(numbering: "1.", outlined: true, supplement: [Раздел])
@@ -40,6 +40,8 @@
       counter(math.equation).update(0) // сброс значения счетчика уравнений
       // Чтобы первый уровень был кричащим
       text(size: 17.2pt, it)
+    } else if it.level == 2 {
+      text(size: 15pt, it)
     } else {
       it
     }
@@ -89,7 +91,7 @@
   // TODO: настройка таблиц
 
   // Списки
-  set enum(indent: 2.5em)
+  set enum(indent: 1.5em)
 
   state("section").update("body")
 
