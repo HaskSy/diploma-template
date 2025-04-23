@@ -10,7 +10,7 @@
   font-type: "CMU Serif", font-size: 12pt, link-color: black, glossary-list: [], body,
 ) = {
   set text(
-    font: font-type, lang: "ru", size: font-size, fallback: true, hyphenate: false,
+    font: font-type, lang: "ru", size: font-size, fallback: true, hyphenate: true,
   )
 
   set page(
