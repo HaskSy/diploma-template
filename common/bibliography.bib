@@ -5,3 +5,58 @@
   publisher = {Pan Books},
   note      = {Don't forget your towel!}
 }
+
+@article{database_views,
+title = {Permitting updates through views of data bases},
+journal = {Information Systems},
+volume = {4},
+number = {4},
+pages = {269-283},
+year = {1979},
+issn = {0306-4379},
+doi = {https://doi.org/10.1016/0306-4379(79)90021-8},
+url = {https://www.sciencedirect.com/science/article/pii/0306437979900218},
+author = {A.L. Furtado and K.C. Sevcik and C.S. {Dos Santos}},
+abstract = {Providing different views (logical images of the structure of a data base) to various users creates the problem of determining how update operations expressed in terms of the views should affect the stored form of the data base. For data bases with a relational organization, we indicate the effects of a wide range of update operations on views. We conclude that some operations must be prohibited in order to assure harmonious interactions among data base users, but that many other operations can be allowed even though the structure of the view may differ substantially from the actual structure of the data base. We consider views not only as “windows” through which to see a data base in a particular way, but also as “shades” to conceal and protect information, and as “screens” to intercept any update operations that could leave the stored form of the data base in an unacceptable state.}
+}
+
+
+@article{matsuoka_framework,
+author = {Matsuoka, Satoshi and Takahashi, Shin and Kamada, Tomihisa and Yonezawa, Akinori},
+title = {A general framework for bidirectional translation between abstract and pictorial data},
+year = {1992},
+issue_date = {Oct. 1992},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {10},
+number = {4},
+issn = {1046-8188},
+url = {https://doi.org/10.1145/146486.146557},
+doi = {10.1145/146486.146557},
+abstract = {The merits of direct manipulation are now widely recognized. However, direct manipulation interfaces incur high cost in their creation. To cope with this problem, we present a model of bidirectional translation between pictures and abstract application data, and a prototype system, TRIP2, based on this model. Using this model, general mapping from abstract data to pictures and from pictures to abstract data is realized merely by giving declarative mapping rules, allowing fast and easy creation of direct manipulation interfaces. We apply the prototype system to the generation of the interfaces for kinship diagrams, Graph Editors, E-R diagrams, and an Othello game.},
+journal = {ACM Trans. Inf. Syst.},
+month = oct,
+pages = {408–437},
+numpages = {30},
+keywords = {visualization, user interface management systems, user interface, direct manipulation, bidirectional translation}
+}
+
+@article{pierce_framework,
+author = {Foster, J. Nathan and Greenwald, Michael B. and Moore, Jonathan T. and Pierce, Benjamin C. and Schmitt, Alan},
+title = {Combinators for bidirectional tree transformations: A linguistic approach to the view-update problem},
+year = {2007},
+issue_date = {May 2007},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {29},
+number = {3},
+issn = {0164-0925},
+url = {https://doi.org/10.1145/1232420.1232424},
+doi = {10.1145/1232420.1232424},
+abstract = {We propose a novel approach to the view-update problem for tree-structured data: a domain-specific programming language in which all expressions denote bidirectional transformations on trees. In one direction, these transformations---dubbed lenses---map a concrete tree into a simplified abstract view; in the other, they map a modified abstract view, together with the original concrete tree, to a correspondingly modified concrete tree. Our design emphasizes both robustness and ease of use, guaranteeing strong well-behavedness and totality properties for well-typed lenses.We begin by identifying a natural space of well-behaved bidirectional transformations over arbitrary structures, studying definedness and continuity in this setting. We then instantiate this semantic framework in the form of a collection of lens combinators that can be assembled to describe bidirectional transformations on trees. These combinators include familiar constructs from functional programming (composition, mapping, projection, conditionals, recursion) together with some novel primitives for manipulating trees (splitting, pruning, merging, etc.). We illustrate the expressiveness of these combinators by developing a number of bidirectional list-processing transformations as derived forms. An extended example shows how our combinators can be used to define a lens that translates between a native HTML representation of browser bookmarks and a generic abstract bookmark format.},
+journal = {ACM Trans. Program. Lang. Syst.},
+month = may,
+pages = {17–es},
+numpages = {65},
+keywords = {Bidirectional programming, Harmony, XML, lenses, view update problem}
+}
