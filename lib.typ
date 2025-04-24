@@ -92,6 +92,7 @@
 
   // Списки
   set enum(indent: 1.5em)
+  set list(indent: 1.5em)
 
   state("section").update("body")
 
@@ -172,7 +173,7 @@
     padding: (top: 0em, bottom: 0em),
     namefmt: x => [#strong(x)],
     titlefmt: x => strong(x + "."),
-    separator: [#h(0.4em)---]
+    separator: [#h(0.4em)--- ]
   )
 }
 
