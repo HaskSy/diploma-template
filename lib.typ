@@ -14,7 +14,7 @@
   )
 
   set page(
-    margin: (top: 3.49cm, bottom: 2cm, left: 3.15cm, right: 3.15cm), // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
+    margin: (top: 3.49cm, bottom: 3.49cm, left: 3.15cm, right: 3.15cm), // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
     width: 21cm,
   )
 
