@@ -1,10 +1,26 @@
 #import "../lib.typ": *
 
-= "Оптика"
+= Анализ предметной области "Оптики"
+
+В предыдущей главе мы постулировали, что @optics является решением описанных ранее проблем
 == Мономорфная/Полиморфная оптика
 == Иерархия оптики
 == Всякие ФПшные термины. Higher-kind polimorphysm, deforestation, defunctionalization, yadda, yadda, yadda
 
+== Анализ существующей реализации "Оптики"
+=== Академические реализации
+==== Getter/Setter
+==== Van Laarhoven
+==== Profunctor
+=== Оптика в объектно-ориентированных языках
+==== Kotlin Arrow
+==== Scala Monocle
+=== Оптика в функциональныч языках
+==== Haskell lens
+==== Haskell Optics
+==== Haskell uniplate
+=== Swift KeyPath
+=== Analysis summary
 == Цель и задачи работы
 
 #let goal(body) = {

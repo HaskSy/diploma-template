@@ -179,3 +179,9 @@
 
 #let example = thmplain("пример", "Пример").with(numbering: none)
 #let proof = thmproof("доказательство", "Доказательство")
+#let noindent(body) = {
+    set par(
+    first-line-indent: (amount: 0em, all: true)
+    )
+    body
+}
