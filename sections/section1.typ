@@ -24,6 +24,12 @@ set text(hyphenate: true)
 #definition("Композируемость") [ #TODO[] ]
 #definition("Объект первого класса") [ #TODO[] ]
 #definition("Доменная модель") [ #TODO[] ]
+#definition("Higher-kinded полиморфизм") [ #TODO[] ]
+#definition("Глобальный вывод типов") [ #TODO[] ]
+#definition("Система Хиндли-Милнера") [ #TODO[] ]
+#definition("Тип-запись") [ #TODO[] ]
+#definition("Инлайнинг") [ #TODO[] ]
+#definition(["Фокус"]) [ #TODO[Результат функции `get`] ]
 
 === #TODO[]
 // === Процедурные макросы

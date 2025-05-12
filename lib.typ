@@ -1,7 +1,6 @@
 #import "@preview/codly:1.3.0": *
-#import "@preview/glossarium:0.5.4": *
-#import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.8": codly-languages
+#import "@preview/glossarium:0.5.4": *
 #import "@preview/outrageous:0.4.0"
 #import "@preview/ctheorems:1.1.3": *
 #show: thmrules
