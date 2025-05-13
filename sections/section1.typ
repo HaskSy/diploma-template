@@ -30,7 +30,7 @@ set text(hyphenate: true)
 #definition("Тип-запись") [ #TODO[] ]
 #definition("Инлайнинг") [ #TODO[] ]
 #definition(["Фокус"]) [ #TODO[Результат функции `get`] ]
-#definition("Умный указатель") [ #TODO[] ]
+#definition(["Умный" указатель]) [ #TODO[] ]
 
 === #TODO[]
 // === Процедурные макросы
