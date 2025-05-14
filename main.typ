@@ -20,6 +20,7 @@
 #include "./sections/section2.typ"
 #include "./sections/section3.typ"
 #include "./sections/section4.typ"
+#include "./sections/section5.typ"
 #include "./sections/conclusion.typ"
 
 // Всё, хватит с нас чиселок
