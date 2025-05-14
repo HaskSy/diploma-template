@@ -3,6 +3,7 @@
 #import "@preview/glossarium:0.5.4": *
 #import "@preview/outrageous:0.4.0"
 #import "@preview/ctheorems:1.1.3": *
+#import "@preview/tablem:0.2.0": tablem, three-line-table
 #show: thmrules
 
 #let template(
@@ -75,14 +76,28 @@
   // Рисунки
   // show figure.where(kind: "thmenv"): align.with(left)
   // show figure: align.with(center)
+  set figure(supplement: it => {
+    if it.func() == image {
+      [Рисунок]
+    } else if it.func() == raw {
+      [Листинг]
+    } else if it.func() == table {
+      [Таблица]
+    } else {
+      auto
+    }
+  })
+
   show figure: it => {
     if (it.kind == "thmenv") {
         show figure.caption: it => {}
         set text(hyphenate: true)
         align(left, it)
-    } else { align(center, it) }
+    } else {
+        align(center, it)
+    }
   }
-  set figure(supplement: [Рисунок])
+
   set figure.caption(separator: [ -- ])
   set figure(numbering: num =>
   ((counter(heading.where(level: 1)).get() + (num,)).map(str).join(".")))
@@ -188,3 +203,17 @@
 #let TODO(body) = {
     [*TODO: #body*]
 }
+
+#let three-line-table = tablem.with(
+  render: (columns: auto, ..args) => {
+    table(
+      columns: columns,
+      stroke: none,
+      align: center + horizon,
+      table.hline(y: 0),
+      table.hline(y: 1, stroke: .5pt),
+      ..args,
+      table.hline(),
+    )
+  }
+)
