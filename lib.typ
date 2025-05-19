@@ -9,9 +9,11 @@
 #let template(
   font-type: "CMU Serif", font-size: 12pt, link-color: black, glossary-list: [], body,
 ) = {
+  counter(page).update(4)
   set text(
     font: font-type, lang: "ru", size: font-size, fallback: true, hyphenate: true,
   )
+ 
 
   set page(
     margin: (top: 3.49cm, bottom: 3.49cm, left: 3.15cm, right: 3.15cm), // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
@@ -128,7 +130,7 @@
     numbering: "1", // сквозная нумерация
     number-align: center + bottom, // Не уверен что правильно, но что нет
   )
-  counter(page).update(1)
+  counter(page).update(4)
 
   // Содержание
   // Здесь делается некоторая магия, чтобы заставить первый уровень иметь обводку "bold" и не ставить никаких точечек

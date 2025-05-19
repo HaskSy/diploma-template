@@ -16,5 +16,16 @@
     key: "oo",
     short: "ОО",
     long: "объектно-ориентированный"
+  ),
+  (
+    key: "cow",
+    short: "Copy On Write",
+    description: "TODO"
+  ),
+  (
+    key: "cangjie", short: `Cangjie`, description: "TODO"
+  ),
+  (
+    key: "optics", short: ["Оптика"], long: "Средство модульного доступа к данным", description: "TODO"
   )
 )
