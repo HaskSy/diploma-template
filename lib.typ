@@ -144,7 +144,7 @@
       it
     }
   }
-  outline(title: "Оглавление", depth: 3, indent: 1.5em)
+  outline(title: "Содержание", depth: 3, indent: 1.5em)
 
   body
 }
